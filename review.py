@@ -2,25 +2,34 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
-wd = webdriver.Chrome(r"D:\software\Chrome\chromedriver.exe")
-wd.get('http://192.168.1.110:18685/private-admin/#/')
+wd = webdriver.Chrome(r'D:\software\Chrome\chromedriver.exe')
+wd.get('')
 wd.implicitly_wait(10)
 
-wd.add_cookie({'name':'token','value':'35e4273986e682aac1cedecbb9f182d2'})
+wd.add_cookie({'name':'token','value':''})
 wd.refresh()
 
-jichu = wd.find_element(By.XPATH,'//span[text()="基础数据"]')
+jichu = wd.find_element(By.XPATH,'//span[text()=""]')
 jichu.click()
 
-haoma = wd.find_element(By.XPATH,'//span[text()="号码管理"]')
-haoma.click()
+qudao = wd.find_element(By.XPATH,'//span[text()=""]')
+qudao.click()
 
-from selenium.webdriver.common.action_chains import ActionChains
-ac = ActionChains(wd)
-xuanfu = wd.find_element(By.XPATH,'//i[@class="el-icon-arrow-down"]')
-ac.move_to_element(xuanfu).perform()
+qudao_new = wd.find_element(By.XPATH,'//*[@id="main-container"]/div[2]/div/div[2]/div/button[2]/span')
+qudao_new.click()
 
-guanbi = wd.find_element(By.XPATH,'//li[text()="关闭当前标签"]')
-guanbi.click()
+bianma = wd.find_element(By.XPATH,'//input[@placeholder=""]')
+jiancheng = wd.find_element(By.XPATH,'//input[@placeholder=""]')
+quancheng = wd.find_element(By.XPATH,'//input[@placeholder=""]')
+leixing = wd.find_element(By.XPATH,'//input[@placeholder=""]')
+neibu = wd.find_element(By.XPATH,'//span[text()=""]')
+tijiao = wd.find_element(By.XPATH,'//span[text()=""]')
+
+bianma.send_keys('auto_test')
+jiancheng.send_keys('自动化1')
+quancheng.send_keys('自动化输入1')
+leixing.click()
+neibu.click()
+tijiao.click()
 
 time.sleep(10)
